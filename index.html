@@ -10,18 +10,17 @@
     }
     /* Style the gallery container */
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 20px auto;
-      width: 90%;
+      //margin: 20px auto;
+      //width: 100%;
     }
+
+
     .control {
       display: flex;
-      text-align: center;
+      text-align: right;
       vertical-align: middle;
-      flex-wrap: wrap;
+      //flex-wrap: wrap;
       margin: 20px auto;
-      width: 90%;
       font-size: 50px;
     }
 
@@ -46,19 +45,18 @@
     /* Style each image pair */
     .image-pair {
       display: flex;
-      margin: 10px;
-      background-color: black;
-      color: white;
-      border: 1px solid #ddd;
-      max-width: 100%;
-      // width: 45%;
+      gap: 10px;
     }
 
     /* Style the images */
     .image-pair img {
-      max-width: 100%;  // width: 100%;
+      max-width: 100%;  
       height: auto;
       object-fit: cover; /* Keeps aspect ratio */
+    }
+    .figure {
+      background-color: #E0E0E0;
+      //min-width: 500px;
     }
 
     /* Add some space between captions (optional) */
