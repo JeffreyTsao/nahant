@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery (Pairs with Navigation)</title>
+  <style>
+    * {
+     font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Style the gallery container */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      width: 90%;
+    }
+    .control {
+      display: flex;
+      text-align: center;
+      vertical-align: middle;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      width: 90%;
+      font-size: 50px;
+    }
+
+    .control button {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: grey;
+      border: none;
+      color: white;
+      margin: 5px;
+      padding: 15px 32px;
+      text-align: center;
+      vertical-align: middle;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 30px;
+    }
+    .control button:hover {
+      background-color: blue;
+      color: white;
+    }
+    /* Style each image pair */
+    .image-pair {
+      display: flex;
+      margin: 10px;
+      background-color: black;
+      color: white;
+      border: 1px solid #ddd;
+      max-width: 100%;
+      // width: 45%;
+    }
+
+    /* Style the images */
+    .image-pair img {
+      max-width: 100%;  // width: 100%;
+      height: auto;
+      object-fit: cover; /* Keeps aspect ratio */
+    }
+
+    /* Add some space between captions (optional) */
+    .image-pair figure {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>12 Spouting Horn Road, Nahant MA 01908</h1>
+
+  
+  <div class="gallery">
+    <div class="image-pair">
+      <figure>
+        <img src="before11.webp" width=1000 alt="Image 1">
+        <figcaption>BEFORE: Dining room</figcaption>
+      </figure>      
+      <figure>
+        <img src="after11.jpeg" width=1000 alt="Image 2">
+        <figcaption>AFTER: Dining room</figcaption>
+      </figure>
+    </div>
+    <div class="image-pair">
+      <figure>
+        <img src="before12.webp" width=1000 alt="Image 1">
+        <figcaption>BEFORE: Master bedroom</figcaption>
+      </figure>
+      <figure>
+        <img src="after12.jpeg" width=1000 alt="Image 2">
+        <figcaption>AFTER: Living room</figcaption>
+      </figure>
+    </div>
+    <div class="image-pair">
+      <figure>
+        <img src="before13.webp" width=1000 alt="Image 1">
+        <figcaption>BEFORE: Study</figcaption>
+      </figure>
+      <figure>
+        <img src="after13.jpeg" width=1000 alt="Image 2">
+        <figcaption>AFTER: Study</figcaption>
+      </figure>
+    </div>
+    <div class="image-pair">
+      <figure>
+        <img src="before14.webp" width=1000 alt="Image 1">
+        <figcaption>BEFORE: At-home office</figcaption>
+      </figure>
+      <figure>
+        <img src="after14.jpeg" width=1000 alt="Image 2">
+        <figcaption>AFTER: Master bedroom</figcaption>
+      </figure>
+    </div>
+  </div>
+  <DIV class="control">
+   <button id="prev-pair">&#9664;</button>
+   <button id="next-pair">&#9654;</button>
+   &nbsp;&nbsp;&nbsp;<DIV id="photo-number"></DIV> 
+  </DIV>
+
+  <script>
+  const imagePairs = document.querySelectorAll('.image-pair');
+  let currentPairIndex = 0;
+
+  function showCurrentPair() {
+    imagePairs.forEach((pair, index) => {
+      pair.style.display = index === currentPairIndex ? 'flex' : 'none';
+    });
+    document.getElementById('photo-number').innerHTML = (currentPairIndex+1) + '/' + imagePairs.length;
+  }
+
+  const prevButton = document.getElementById('prev-pair');
+  prevButton.addEventListener('click', () => {
+    currentPairIndex = (currentPairIndex - 1 + imagePairs.length) % imagePairs.length;
+    showCurrentPair();
+  });
+
+  const nextButton = document.getElementById('next-pair');
+
+  nextButton.addEventListener('click', () => {
+    currentPairIndex = (currentPairIndex + 1) % imagePairs.length;
+
+    showCurrentPair();
+
+  });
+
+
+
+  showCurrentPair(); // Show the first pair on page load
+
+  </script>
+
+</body>
+
+</html>
+
+
+
